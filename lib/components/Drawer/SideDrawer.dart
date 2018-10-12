@@ -2,63 +2,66 @@ import 'package:flutter/material.dart';
 
 class SideDrawer extends StatelessWidget 
 {
-  final String backgroundImagePath = "lib/assets/images/background/bg_one.jpg";
-  final String userImagePath = "lib/assets/images/icons/face_18.png";
   final String userAccountName = "YourUserName";
   final String userAccountMail = "yourusername@mail.com";
+
+  drawer_header_item_text(String title) => Text(title, style: TextStyle(color: drawer_font_color(), fontSize: 16.0) );
+  drawer_list_item_text(String title) => Text(title, style: TextStyle(color: drawer_font_color(), fontSize: 20.0, fontWeight: FontWeight.bold ),  );
+  drawer_icon(IconData type) => Icon( type, color: drawer_font_color() );
+  drawer_font_color() => Colors.white;
+  drawer_background_color() => Colors.red;
+  drawer_divider() => Divider(color: Colors.white);
 
   @override
   Widget build(BuildContext context) 
   {
+
     return Drawer
     (
-      child: ListView
+      child: Container
       (
-        children: <Widget>
-        [
-          UserAccountsDrawerHeader
-          (
-            accountName: Text( userAccountName ),
-            accountEmail: Text( userAccountMail ),
-            currentAccountPicture: GestureDetector
+        color: drawer_background_color(),
+        child: ListView
+        (
+          children: <Widget>
+          [            
+            UserAccountsDrawerHeader
             (
-              child: CircleAvatar
+              accountName: drawer_header_item_text( userAccountName ),
+              accountEmail: drawer_header_item_text( userAccountMail ),
+              currentAccountPicture: GestureDetector
               (
-                backgroundImage: AssetImage( userImagePath ),
-              )
-            ),
-            decoration: BoxDecoration
-            (
-              image: DecorationImage
-              (
-                image: AssetImage( backgroundImagePath ),
-                fit: BoxFit.cover
+                child: CircleAvatar
+                (
+                  child: Icon( Icons.verified_user ),
+                  backgroundColor: Colors.white,
+                )
               ),
+
             ),
-          ),
-          ListTile
-          (
-            title: Text("Home"),
-            trailing: Icon( Icons.home ),
-            onTap: () => 
-              Navigator.of(context).pushReplacementNamed('/'),
-          ),
-          ListTile
-          (
-            title: Text("Albums"),
-            trailing: Icon( Icons.arrow_right ),
-            onTap: () => 
-              Navigator.of(context).pushReplacementNamed('albums'),
-          ),
-          Divider(color: Colors.black),
-          ListTile
-          (
-            title: Text("Logout"),
-            trailing: Icon( Icons.cancel ),
-            onTap: () => Navigator.of(context).pop(),
-          )
-        ]
+            drawer_divider(),
+            ListTile
+            (
+              title: drawer_list_item_text("Home"),
+              trailing: drawer_icon( Icons.home ),
+              onTap: () => Navigator.of(context).pushReplacementNamed('/'),
+            ),
+            ListTile
+            (
+              title: drawer_list_item_text("Albums"),
+              trailing: drawer_icon( Icons.album  ),
+              onTap: () => Navigator.of(context).pushReplacementNamed('albums'),
+            ),
+            ListTile
+            (
+              title: drawer_list_item_text("Logout"),
+              trailing: drawer_icon( Icons.cancel ),
+              onTap: () => Navigator.of(context).pop(),
+            )
+          ]
+        )
       )
     );
   }
+
 }

@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
-import './../components/Drawer/SideDrawer.dart';
-
-class HomePage extends StatelessWidget 
+import 'package:app/components/Drawer/SideDrawer.dart';
+class HomePage extends StatelessWidget
 {
+  final String page_title = "Home Page";
+
   @override
   Widget build(BuildContext context) 
   {
-    return Scaffold
+    return //BaseScaffold
+    Scaffold
     (
-      appBar: new AppBar
+      drawer: SideDrawer(),
+      appBar: AppBar
       ( 
-        title: new Text("Home Page"),
-        backgroundColor: Colors.blueAccent,
+        title: Text( page_title )
       ),
-      body: new Center
+      body: Center
       (
-        child: new Text("This is Home Page", style: new TextStyle( fontSize: 35.0 ) )
-      ),
-      drawer: new SideDrawer()
+        child: Text("This is Home Page", style: TextStyle( fontSize: 35.0 ) )
+      )
     );
   }
 }

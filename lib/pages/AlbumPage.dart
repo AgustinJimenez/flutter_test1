@@ -1,46 +1,56 @@
 import 'dart:async';
-import 'dart:convert';
+
 
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import './../datasource/Album.dart';
+
+import 'package:app/datasource/Album.dart';
+import 'package:app/components/Drawer/SideDrawer.dart';
+import 'package:app/pages/AlbumDetailPage.dart';
+import 'package:app/providers/Http.dart';
 
 class AlbumPage extends StatelessWidget 
 {
+  final String api_endpoint = 'https://jsonplaceholder.typicode.com/albums';
+  final String page_title = "Albums";
+
   @override
   Widget build(BuildContext context) 
   {
     return Scaffold
     (
+      drawer: SideDrawer(),
       appBar: AppBar
       (
-        title: Text( "Products" ),
-        backgroundColor: Colors.blueAccent,
+        title: Text( page_title )
       ),
       body: Center
       (
         child: FutureBuilder<List<Album>>
         (
-          future: fetchAlbum(),
+          future: fetchAlbum( api_endpoint ),
 
           builder: (context, snapshot)
           {
             //Text( snapshot.data.title )
+            //snapshot.data[index].title
             if( snapshot.hasData )
               return ListView.builder
               (
                 itemCount: snapshot.data.length,
                 itemBuilder: (context, index) 
                 {
-                  return Column
+                  return ListTile
                   (
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>
-                    [
-                      Text(snapshot.data[index].title, style: TextStyle(fontWeight: FontWeight.bold) ),
-                      Divider(),
-                    ]
-
+                    trailing: Icon( Icons.arrow_right ),
+                    title: Text( snapshot.data[index].title ),
+                    onTap: () => Navigator.of(context).push
+                    (
+                      MaterialPageRoute
+                      (
+                        builder: (context) => AlbumDetailPage( snapshot.data[index] )
+                      )
+                    ),
+                    
                   );
                 }
               );
@@ -56,14 +66,11 @@ class AlbumPage extends StatelessWidget
 }
 
 
-Future< List<Album> > fetchAlbum() async 
+Future< List<Album> > fetchAlbum( source ) async 
 {
-  final response = await http.get('https://jsonplaceholder.typicode.com/albums');
+  var result = await Http.request( source);
 
-  var listOfAlbums = (json.decode(response.body) as List).map( (e) => Album.fromJson( e )).toList();
-
-  if( response.statusCode == 200 )
-    return listOfAlbums;
-  else 
-    throw Exception('Failed to load post');
+  var list_of_albums = (result as List).map( (album_json) => Album.fromJson( album_json )).toList();
+  
+  return list_of_albums;
 }
