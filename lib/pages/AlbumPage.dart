@@ -68,9 +68,9 @@ class AlbumPage extends StatelessWidget
 
 Future< List<Album> > fetchAlbum( source ) async 
 {
-  var result = await Http.request( source);
+  var result = await Http.request( source );
 
   var list_of_albums = (result as List).map( (album_json) => Album.fromJson( album_json )).toList();
-  
+
   return list_of_albums;
 }
