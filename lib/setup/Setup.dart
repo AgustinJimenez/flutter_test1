@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:app/routes.dart';
-
+import './SQLiteDB.dart';
 class Setup extends StatelessWidget 
 {
+  Setup()
+  {
+    print("<=== RUNNING-SETUP ===>");
+
+    var a = new SQLiteDB();
+    var tmp = a.db;
+    
+  }
 
   @override
   Widget build(BuildContext context) 
   {
+
     return MaterialApp
     (
       title: "Flutter Test 1",

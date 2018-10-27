@@ -54,6 +54,18 @@ class SideDrawer extends StatelessWidget
             ),
             ListTile
             (
+              title: drawer_list_item_text("Personas"),
+              trailing: drawer_icon( Icons.people  ),
+              onTap: () => Navigator.of(context).pushReplacementNamed('personas'),
+            ),
+            ListTile
+            (
+              title: drawer_list_item_text("Paises"),
+              trailing: drawer_icon( Icons.flag  ),
+              onTap: () => Navigator.of(context).pushReplacementNamed('paises'),
+            ),
+            ListTile
+            (
               title: drawer_list_item_text("Logout"),
               trailing: drawer_icon( Icons.cancel ),
               onTap: () => Navigator.of(context).pop(),

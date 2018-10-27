@@ -1,30 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:app/components/Drawer/SideDrawer.dart';
 import 'package:app/datasource/Album.dart';
-
-class AlbumDetailPage extends StatelessWidget 
+import 'package:app/components/CardOne.dart';
+class AlbumDetailPage extends StatefulWidget 
 {
-  Album album;
+  Album _album;
 
   AlbumDetailPage(Album album)
   {
-    this.album = album;
+    this._album = album;
   }
-  
+
+  @override
+  AlbumDetailPageState createState() {
+    return new AlbumDetailPageState();
+  }
+}
+
+class AlbumDetailPageState extends State<AlbumDetailPage> {
+  String _page_title = "Detalle Album";
+
   @override
   Widget build(BuildContext context) 
   {
     return Scaffold
     (
-      drawer: SideDrawer(),
-      body: Container
+      appBar: AppBar
       (
-        child: Center
-        (
-          child: Text( album.title ),
-        ),
+        title: Text( _page_title ),
       ),
+      body: CardOne(),
     );
   }
-
 }
