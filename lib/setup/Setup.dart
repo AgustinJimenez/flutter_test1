@@ -8,7 +8,7 @@ class Setup extends StatelessWidget
     print("<=== RUNNING-SETUP ===>");
 
     var a = new SQLiteDB();
-    var tmp = a.db;
+    var tmp = a.initDb();
     
   }
 
