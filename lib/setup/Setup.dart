@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:app/routes.dart';
-import './SQLiteDB.dart';
+import 'package:app/providers/DB.dart';
+
 class Setup extends StatelessWidget 
 {
+  bool _debug = true;
+
   Setup()
   {
-    print("<=== RUNNING-SETUP ===>");
+    if( _debug )
+      print("<=== RUNNING-SETUP ===>");
 
-    var a = new SQLiteDB();
-    var tmp = a.initDb();
+    DB(true).initDb();
     
   }
 

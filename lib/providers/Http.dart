@@ -1,13 +1,12 @@
 import 'dart:core';
 
 import 'package:http/http.dart' as http;
-import "package:app/setup/DefaultHttpHeaders.dart";
+import "package:app/setup/HttpSetup.dart";
 import 'dart:convert';
 
 class Http 
 {
   static bool _debug = true;
-  static const  int _default_timeout =  5;
 
   static dynamic request
   (
@@ -21,8 +20,8 @@ class Http
   ) 
   async
   {
-    var new_header = DefaultHttpHeaders.values;
-    int new_timeout = _default_timeout;
+    var new_header = HttpSetup.default_headers;
+    int new_timeout = HttpSetup.default_timeout;
 
     if( _debug )
       print("<=== ============================HTTP-START (${(new DateTime.now().toString())})===================================== ===>");
@@ -35,7 +34,7 @@ class Http
       new_timeout = options['timeout'];
 
     if( _debug )
-      print( "SENDING===>\n(\nurl=${url}, \nargs=${args.toString()}, \ntype=${type}, \ntimeout=${new_timeout.toString()} seconds, \nheaders=${new_header.toString()}\n)\n " );
+      print( "SENDING===>\n(\nurl=${url}, \nargs=${args.toString()}, \ntype=$type, \ntimeout=${new_timeout.toString()} seconds, \nheaders=${new_header.toString()}\n)\n " );
 
     http.Response response;
 

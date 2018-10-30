@@ -1,71 +1,101 @@
 import 'package:sqflite/sqflite.dart';
+import 'package:app/providers/DB.dart';
 
-final String table = "paises";
-final String columnId = "_id";
-final String columnNombre = "nombre";
+String table = "paises";
 
 class Pais 
 {
+  Pais();
   int id;
   String nombre;
 
-  Pais();
-
-  Map<String, dynamic> toMap() 
+  Map<String, dynamic> toMap() =>
   {
-    var map = <String, dynamic>
+    "id": id,
+    "nombre": nombre
+  };
+
+  Pais fromMap(Map<String, dynamic> map) 
+  {
+    id = map['id'];
+    nombre = map['nombre'];
+
+    return this;
+  }
+
+  Future<dynamic> save() async
+  {
+    int updated = 0;
+
+    await _openDb();
+
+    if( this.id == null)
     {
-      columnNombre: nombre
-    };
-
-    if (id != null) 
-      map[columnId] = id;
-      
-    return map;
+      this.id = await _db.insert(table, this.toMap() );
+      await _closeDb();
+      return this;
+    }
+    else
+    {
+      updated = await _db.update(table, this.toMap(), where: "id = ?", whereArgs: [this.id]);
+      await _closeDb();
+      return updated;
+    }
   }
 
-  Pais.fromMap(Map<String, dynamic> map) 
+  Future<int> delete() async
   {
-    id = map[columnId];
-    nombre = map[columnNombre];
-  }
-}
+    await _openDb();
+    
+    int deleted = 0;
 
-class PaisProvider 
-{
-  Database db;
+    deleted = await _db.delete(table, where: "id = ?", whereArgs: [id]);
 
-  Future open(String path) async 
-  {
-    db = await openDatabase(path, version: 1,
-        onCreate: (Database db, int version) async 
-        {
-        await db.execute
-        ('''
-          create table $table ( 
-          $columnId integer primary key autoincrement, 
-          $columnNombre text not null
-        ''');
-    });
+    await _closeDb();
+
+    return deleted;
   }
 
-  Future<Pais> insert(Pais item) async 
+  static Future<Pais> find(int id) async 
   {
-    item.id = await db.insert(table, item.toMap());
-    return item;
-  }
+    await _openDb();
 
-  Future<Pais> find(int id) async 
-  {
-    List<Map> results = await db.query(table, columns: [columnId, columnNombre], where: "$columnId = ?", whereArgs: [id]);
+    List<Map> results = await _db.query(table, where: "id = ?", whereArgs: [id]);
 
     if( results.length > 0 )
-      return new Pais.fromMap( results.first );
+    {
+      Pais pais = Pais();
+      pais.fromMap( results.first );
+      await _closeDb();
+      return pais;
+    }
 
+    await _closeDb();
     return null;
   }
 
-  Future<int> delete(int id) async => await db.delete(table, where: "$columnId = ?", whereArgs: [id]);
-  Future<int> update(Pais item) async => await db.update(table, item.toMap(), where: "$columnId = ?", whereArgs: [item.id]);
-  Future close() async => db.close();
+  static Future<List<Pais>> list() async 
+  {
+    await _openDb();
+
+    var list = (await _db.query(table)).map( (item) => Pais().fromMap(item) ).toList();
+
+    await _closeDb();
+
+    return list;
+  }
+
+  static _openDb() async 
+  {
+    if( _db==null || !_db.isOpen )
+      _db = await DB().db;
+  }
+
+  static _closeDb() async 
+  {
+    if( _db!=null || !_db.isOpen )
+      await _db.close();
+  }
+  static Database _db;
+  static bool _debug = true;
 }
