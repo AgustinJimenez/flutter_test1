@@ -29,8 +29,7 @@ class DB
   //Creating a database with name test.dn in your directory
   initDb() async 
   {
-    if( DatabaseSetup.debug )
-      print( "INIT-DB-RUNNING...\n");
+    if( DatabaseSetup.debug ) print( "INIT-DB-RUNNING...\n");
 
     String databasesPath = await getDatabasesPath();
     
@@ -38,8 +37,7 @@ class DB
 
     if( _is_initial && DatabaseSetup.delete_db_before )
     {
-      if( DatabaseSetup.debug )
-        print( "DELETING DB BEFORE...\n");
+      if( DatabaseSetup.debug ) print( "DELETING DB BEFORE...\n");
 
       // Delete the database
       await deleteDatabase(path);
@@ -58,8 +56,7 @@ class DB
   {
     String ddl = DatabaseSetup.ddl.join();
 
-    if( DatabaseSetup.debug )
-      print( "CREATING-DB...\nSQL=($ddl)\n");
+    if( DatabaseSetup.debug ) print( "CREATING-DB...\nSQL=($ddl)\n");
 
     await db.execute( ddl );
   }

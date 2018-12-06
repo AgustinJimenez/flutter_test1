@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:app/routes.dart';
 import 'package:app/providers/DB.dart';
+import 'package:app/setup/ThemeSetup.dart';
 
 class Setup extends StatelessWidget 
 {
@@ -18,7 +19,6 @@ class Setup extends StatelessWidget
   @override
   Widget build(BuildContext context) 
   {
-
     return MaterialApp
     (
       title: "Flutter Test 1",
@@ -27,13 +27,7 @@ class Setup extends StatelessWidget
       color: Colors.red,
       showPerformanceOverlay: false,
       showSemanticsDebugger: false,
-      theme: new ThemeData
-      (
-        brightness: Brightness.light,
-        primarySwatch: Colors.blue,
-        primaryColor: Colors.red,
-      ),
-
+      theme: ThemeSetup().get_theme(),
     );
   }
 }

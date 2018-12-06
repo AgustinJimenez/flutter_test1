@@ -8,10 +8,7 @@ class PaisesForm extends StatefulWidget
 {
   PaisesForm([Pais pais])
   {
-    if( pais !=null )
-      _pais = pais;
-    else
-      _pais = Pais();
+    _pais = ( pais == null ) ? Pais() : pais;
   }
 
   @override
