@@ -6,11 +6,11 @@ import 'package:app/setup/DatabaseSetup.dart';
 class DB
 {
   Database _db;
-  bool _is_initial = false;
+  bool _isInitial = false;
 
-  DB([bool is_initial = false])
+  DB([bool isInitial = false])
   {
-    _is_initial = is_initial;
+    _isInitial = isInitial;
   }
 
   Future<Database> get db async 
@@ -35,7 +35,7 @@ class DB
     
     String path = join(databasesPath, DatabaseSetup.name );
 
-    if( _is_initial && DatabaseSetup.delete_db_before )
+    if( _isInitial && DatabaseSetup.deleteDbBefore )
     {
       if( DatabaseSetup.debug ) print( "DELETING DB BEFORE...\n");
 

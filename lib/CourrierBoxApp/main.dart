@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
-import './CourrierBoxApp/main.dart';
+import './setup/Setup.dart';
 
-
-void main() => runApp(App());
-
-class App extends StatelessWidget 
+class CourrierBoxApp extends StatelessWidget 
 {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) 
   {
-    return CourrierBoxApp();
+    return Setup();
   }
 }

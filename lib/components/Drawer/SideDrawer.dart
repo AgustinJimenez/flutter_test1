@@ -5,12 +5,12 @@ class SideDrawer extends StatelessWidget
   final String userAccountName = "YourUserName";
   final String userAccountMail = "yourusername@mail.com";
 
-  drawer_header_item_text(String title) => Text(title, style: TextStyle(color: drawer_font_color(), fontSize: 16.0) );
-  drawer_list_item_text(String title) => Text(title, style: TextStyle(color: drawer_font_color(), fontSize: 20.0, fontWeight: FontWeight.bold ),  );
-  drawer_icon(IconData type) => Icon( type, color: drawer_font_color() );
-  drawer_font_color() => Colors.white;
-  drawer_background_color() => Colors.red;
-  drawer_divider() => Divider(color: Colors.white);
+  drawerHeaderItemText(String title) => Text(title, style: TextStyle(color: drawerFontColor(), fontSize: 16.0) );
+  drawerListItemText(String title) => Text(title, style: TextStyle(color: drawerFontColor(), fontSize: 20.0, fontWeight: FontWeight.bold ),  );
+  drawerIcon(IconData type) => Icon( type, color: drawerFontColor() );
+  drawerFontColor() => Colors.white;
+  drawerBackgroundColor() => Colors.red;
+  drawerDivider() => Divider(color: Colors.white);
 
   @override
   Widget build(BuildContext context) 
@@ -20,15 +20,15 @@ class SideDrawer extends StatelessWidget
     (
       child: Container
       (
-        color: drawer_background_color(),
+        color: drawerBackgroundColor(),
         child: ListView
         (
           children: <Widget>
           [            
             UserAccountsDrawerHeader
             (
-              accountName: drawer_header_item_text( userAccountName ),
-              accountEmail: drawer_header_item_text( userAccountMail ),
+              accountName: drawerHeaderItemText( userAccountName ),
+              accountEmail: drawerHeaderItemText( userAccountMail ),
               currentAccountPicture: GestureDetector
               (
                 child: CircleAvatar
@@ -39,35 +39,35 @@ class SideDrawer extends StatelessWidget
               ),
 
             ),
-            drawer_divider(),
+            drawerDivider(),
             ListTile
             (
-              title: drawer_list_item_text("Home"),
-              trailing: drawer_icon( Icons.home ),
+              title: drawerListItemText("Home"),
+              trailing: drawerIcon( Icons.home ),
               onTap: () => Navigator.of(context).pushReplacementNamed('/'),
             ),
             ListTile
             (
-              title: drawer_list_item_text("Albums"),
-              trailing: drawer_icon( Icons.album  ),
+              title: drawerListItemText("Albums"),
+              trailing: drawerIcon( Icons.album  ),
               onTap: () => Navigator.of(context).pushReplacementNamed('albums'),
             ),
             ListTile
             (
-              title: drawer_list_item_text("Personas"),
-              trailing: drawer_icon( Icons.people  ),
+              title: drawerListItemText("Personas"),
+              trailing: drawerIcon( Icons.people  ),
               onTap: () => Navigator.of(context).pushReplacementNamed('personas'),
             ),
             ListTile
             (
-              title: drawer_list_item_text("Paises"),
-              trailing: drawer_icon( Icons.flag  ),
+              title: drawerListItemText("Paises"),
+              trailing: drawerIcon( Icons.flag  ),
               onTap: () => Navigator.of(context).pushReplacementNamed('paises'),
             ),
             ListTile
             (
-              title: drawer_list_item_text("Logout"),
-              trailing: drawer_icon( Icons.cancel ),
+              title: drawerListItemText("Logout"),
+              trailing: drawerIcon( Icons.cancel ),
               onTap: () => Navigator.of(context).pop(),
             )
           ]

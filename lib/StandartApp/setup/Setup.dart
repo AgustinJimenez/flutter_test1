@@ -27,7 +27,7 @@ class Setup extends StatelessWidget
       color: Colors.red,
       showPerformanceOverlay: false,
       showSemanticsDebugger: false,
-      theme: ThemeSetup().get_theme(),
+      theme: ThemeSetup(),
     );
   }
 }

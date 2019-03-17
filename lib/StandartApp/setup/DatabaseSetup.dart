@@ -1,7 +1,7 @@
 class DatabaseSetup 
 {
   static bool debug = true;
-  static bool delete_db_before = false;
+  static bool deleteDbBefore = false;
   static String name = "test.db";
   static int version = 1;
   static List<String> ddl = 
