@@ -15,38 +15,38 @@ class Http
       Map args = const {}, 
       String type = "GET", 
       Map < String, dynamic > options = const { 'headers': {}, 'timeout': 15 }, 
-      String data_type = "json"
+      String dataType = "json"
     ]
   ) 
   async
   {
-    var new_header = HttpSetup.default_headers;
-    int new_timeout = HttpSetup.default_timeout;
+    var newHeader = HttpSetup.defaultHeaders;
+    int newTimeout = HttpSetup.default_timeout;
 
     if( _debug )
       print("<=== ============================HTTP-START (${(new DateTime.now().toString())})===================================== ===>");
 
     type = type.toUpperCase();
 
-    new_header.addAll( new Map<String, String>.from( options['headers'] ) );
+    newHeader.addAll( new Map<String, String>.from( options['headers'] ) );
 
     if( options['timeout'] != null )
-      new_timeout = options['timeout'];
+      newTimeout = options['timeout'];
 
     if( _debug )
-      print( "SENDING===>\n(\nurl=${url}, \nargs=${args.toString()}, \ntype=$type, \ntimeout=${new_timeout.toString()} seconds, \nheaders=${new_header.toString()}\n)\n " );
+      print( "SENDING===>\n(\nurl="+url+", \nargs="+args.toString()+", \ntype="+type+", \ntimeout="+newTimeout.toString()+" seconds, \nheaders="+newHeader.toString()+"\n)\n " );
 
     http.Response response;
 
     if( type == "GET")
       response = await http
-      .get(url, headers: new_header)
-      .timeout( Duration(seconds: new_timeout) );
+      .get(url, headers: newHeader)
+      .timeout( Duration(seconds: newTimeout) );
 
     else if( type == "POST" || type == "PUT" || type == "PATCH" )
       response = await http
-      .post(url, headers: new_header, body: args)
-      .timeout( Duration(seconds: new_timeout) );
+      .post(url, headers: newHeader, body: args)
+      .timeout( Duration(seconds: newTimeout) );
 
     if( _debug )
       print( "RESPONSE===>\n(\n${response.body.toString()})\n)" );
@@ -54,11 +54,11 @@ class Http
     if( _debug )
       print("<=== ============================HTTP-END (${(new DateTime.now().toString())})===================================== ===>");
 
-    if( data_type == 'response')
+    if( dataType == 'response')
         return response;
         
     if( response.statusCode == 200 )
-      if( data_type == 'json')
+      if( dataType == 'json')
         return json.decode(response.body);
       else
         return response;

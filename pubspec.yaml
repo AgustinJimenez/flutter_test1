@@ -44,7 +44,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - lib/assets/ 
+    -  assets/images/
     
   #  - images/a_dot_ham.jpeg
 
@@ -62,36 +62,40 @@ flutter:
   fonts:
     - family: Lato
       fonts:
-        - asset: lib/assets/fonts/Lato/Lato-Black.ttf
-        - asset: lib/assets/fonts/Lato/Lato-BlackItalic.ttf
-        - asset: lib/assets/fonts/Lato/Lato-Bold.ttf
-        - asset: lib/assets/fonts/Lato/Lato-BoldItalic.ttf
-        - asset: lib/assets/fonts/Lato/Lato-Hairline.ttf
-        - asset: lib/assets/fonts/Lato/Lato-HairlineItalic.ttf
-        - asset: lib/assets/fonts/Lato/Lato-Heavy.ttf
-        - asset: lib/assets/fonts/Lato/Lato-HeavyItalic.ttf
-        - asset: lib/assets/fonts/Lato/Lato-Italic.ttf
-        - asset: lib/assets/fonts/Lato/Lato-Light.ttf
-        - asset: lib/assets/fonts/Lato/Lato-LightItalic.ttf
-        - asset: lib/assets/fonts/Lato/Lato-Medium.ttf
-        - asset: lib/assets/fonts/Lato/Lato-MediumItalic.ttf
-        - asset: lib/assets/fonts/Lato/Lato-Regular.ttf
-        - asset: lib/assets/fonts/Lato/Lato-Semibold.ttf
-        - asset: lib/assets/fonts/Lato/Lato-SemiboldItalic.ttf
-        - asset: lib/assets/fonts/Lato/Lato-Thin.ttf
-        - asset: lib/assets/fonts/Lato/Lato-ThinItalic.ttf
+        - asset: assets/fonts/Lato/Lato-Black.ttf
+        - asset: assets/fonts/Lato/Lato-BlackItalic.ttf
+        - asset: assets/fonts/Lato/Lato-Bold.ttf
+        - asset: assets/fonts/Lato/Lato-BoldItalic.ttf
+        - asset: assets/fonts/Lato/Lato-Hairline.ttf
+        - asset: assets/fonts/Lato/Lato-HairlineItalic.ttf
+        - asset: assets/fonts/Lato/Lato-Heavy.ttf
+        - asset: assets/fonts/Lato/Lato-HeavyItalic.ttf
+        - asset: assets/fonts/Lato/Lato-Italic.ttf
+        - asset: assets/fonts/Lato/Lato-Light.ttf
+        - asset: assets/fonts/Lato/Lato-LightItalic.ttf
+        - asset: assets/fonts/Lato/Lato-Medium.ttf
+        - asset: assets/fonts/Lato/Lato-MediumItalic.ttf
+        - asset: assets/fonts/Lato/Lato-Regular.ttf
+        - asset: assets/fonts/Lato/Lato-Semibold.ttf
+        - asset: assets/fonts/Lato/Lato-SemiboldItalic.ttf
+        - asset: assets/fonts/Lato/Lato-Thin.ttf
+        - asset: assets/fonts/Lato/Lato-ThinItalic.ttf
     - family: Roboto_Mono
       fonts:
-        - asset: lib/assets/fonts/Roboto_Mono/RobotoMono-Bold.ttf
-        - asset: lib/assets/fonts/Roboto_Mono/RobotoMono-BoldItalic.ttf
-        - asset: lib/assets/fonts/Roboto_Mono/RobotoMono-Italic.ttf
-        - asset: lib/assets/fonts/Roboto_Mono/RobotoMono-Light.ttf
-        - asset: lib/assets/fonts/Roboto_Mono/RobotoMono-LightItalic.ttf
-        - asset: lib/assets/fonts/Roboto_Mono/RobotoMono-Medium.ttf
-        - asset: lib/assets/fonts/Roboto_Mono/RobotoMono-MediumItalic.ttf
-        - asset: lib/assets/fonts/Roboto_Mono/RobotoMono-Regular.ttf
-        - asset: lib/assets/fonts/Roboto_Mono/RobotoMono-Thin.ttf
-        - asset: lib/assets/fonts/Roboto_Mono/RobotoMono-ThinItalic.ttf
+        - asset: assets/fonts/Roboto_Mono/RobotoMono-Bold.ttf
+        - asset: assets/fonts/Roboto_Mono/RobotoMono-BoldItalic.ttf
+        - asset: assets/fonts/Roboto_Mono/RobotoMono-Italic.ttf
+        - asset: assets/fonts/Roboto_Mono/RobotoMono-Light.ttf
+        - asset: assets/fonts/Roboto_Mono/RobotoMono-LightItalic.ttf
+        - asset: assets/fonts/Roboto_Mono/RobotoMono-Medium.ttf
+        - asset: assets/fonts/Roboto_Mono/RobotoMono-MediumItalic.ttf
+        - asset: assets/fonts/Roboto_Mono/RobotoMono-Regular.ttf
+        - asset: assets/fonts/Roboto_Mono/RobotoMono-Thin.ttf
+        - asset: assets/fonts/Roboto_Mono/RobotoMono-ThinItalic.ttf
+    - family: SarySoft
+      fonts:
+        - asset: assets/SarySoft/SarySoft-Light.ttf
+        - asset: assets/SarySoft/SarySoft-SemiBold.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:
