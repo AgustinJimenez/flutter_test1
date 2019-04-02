@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
 
-renderCategoriasPaquetes({String title: '', int value, double mTop: 5, double mRight: 0, double mBottom: 5, double mLeft: 0}) =>
+renderCategoriasPaquetes({String title: '', VoidCallback onTapDown(TapDownDetails details), int value, double mTop: 5, double mRight: 0, double mBottom: 5, double mLeft: 0}) =>
   GestureDetector(
-    onTap: (){
-
-    },
-    onTapDown: (TapDownDetails details){ 
-
-    },
+    onTapDown: onTapDown,
     child: Container(
       child: Column(
-        children: <Widget>[
+        children: <Widget> [
           Container(
             margin: EdgeInsets.only(top: 5),
             child: Text(title, style: TextStyle( fontSize: 20) ),
