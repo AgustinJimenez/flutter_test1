@@ -3,8 +3,9 @@ import '../pages/PBoxProfile/PBoxProfilePage.dart';
 
 CustomAppBar({ BuildContext ctx, leftItem = true, centerItem = true, rightItem = true }) => AppBar(
   leading: null,
+  brightness: Brightness.dark,
   automaticallyImplyLeading: false,
-  backgroundColor: Color.fromRGBO(35, 47, 62, 1.0),
+  backgroundColor: Theme.of(ctx).colorScheme.secondary,
   actions: [
     Expanded(
       child: _renderLeftItem(ctx, leftItem)
@@ -41,7 +42,7 @@ _renderLeftItem(ctx, leftItem){
           children: <Widget>[
             Container(
               margin: EdgeInsets.symmetric(horizontal: 5),
-              child: Icon( Icons.arrow_back ) 
+              child: Icon( Icons.arrow_back, color: Colors.white ) 
             ),
             Text('Atrás' ,style: TextStyle(color: Colors.white, fontSize: 20))
         ])
@@ -64,7 +65,7 @@ _renderCenterItem(ctx, centerItem){
   else if(centerItem is String)
     return Container(
       alignment: Alignment.center,
-      child: Text(centerItem, style: TextStyle(color: Colors.orange, fontSize: 20), textAlign: TextAlign.center),
+      child: Text(centerItem, style: TextStyle(color: Theme.of(ctx).colorScheme.primary, fontSize: 20), textAlign: TextAlign.center),
     );
 
   return Container();
@@ -105,14 +106,14 @@ Future<void> _showDialog(ctx) async {
         ),
         actions: <Widget>[
           FlatButton(
-            color: Colors.orange,
+            color: Theme.of(ctx).colorScheme.primary,
             child: Text('CANCEL', style: TextStyle(color: Colors.white)),
             onPressed: () {
               Navigator.of(context).pop();
             },
           ),
           FlatButton(
-            color: Colors.orange,
+            color: Theme.of(ctx).colorScheme.primary,
             child: Text('OK', style: TextStyle(color: Colors.white) ),
             onPressed: () {
               Navigator.of(context).pop();

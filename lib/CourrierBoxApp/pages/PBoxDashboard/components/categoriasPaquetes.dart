@@ -21,7 +21,7 @@ renderCategoriasPaquetes({String title: '', VoidCallback onTapDown(TapDownDetail
       margin: EdgeInsets.only(top:mTop, right: mRight, bottom: mBottom, left: mLeft),
       decoration: BoxDecoration(
         border: Border.all(color: Color.fromRGBO(255, 153, 0, 1)),
-        color: Color.fromRGBO(255, 229, 210, 1),
+        color: Color.fromRGBO(255, 229, 210, 1),//rgba(255, 229, 210, 1)
         borderRadius: BorderRadius.horizontal(left: Radius.circular(5), right: Radius.circular(5))
       ),
     )

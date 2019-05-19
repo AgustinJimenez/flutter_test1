@@ -40,7 +40,7 @@ class PBoxDashboardPageState extends State<PBoxDashboardPage>{
           onPressed: () {},
           textColor: Colors.white,
           height: 45,
-          color: Color.fromRGBO(255,153,0, 1),
+          color: Theme.of(context).colorScheme.primary,
           elevation: 3,
           minWidth: double.infinity,
           child: Text('Guardar', style:TextStyle(fontSize: 20))
