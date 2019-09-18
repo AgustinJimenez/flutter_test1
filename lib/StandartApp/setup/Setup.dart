@@ -1,33 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:app/routes.dart';
-import 'package:app/providers/DB.dart';
-import 'package:app/setup/ThemeSetup.dart';
+import './ThemeSetup.dart';
+import './RouterSetup.dart';
 
-class Setup extends StatelessWidget 
-{
-  bool _debug = true;
-
-  Setup()
-  {
-    if( _debug )
-      print("<=== RUNNING-SETUP ===>");
-
-    DB(true).initDb();
-    
-  }
-
-  @override
-  Widget build(BuildContext context) 
-  {
-    return MaterialApp
-    (
-      title: "Flutter Test 1",
-      initialRoute: AppRoutes.initialRoute,
-      routes: AppRoutes.routes,
-      color: Colors.red,
+Setup() => MaterialApp(
+      title: "CourrierBox App",
+      theme: ThemeSetup(),
+      routes: RouterSetup(),
+      initialRoute: '/',
       showPerformanceOverlay: false,
       showSemanticsDebugger: false,
-      theme: ThemeSetup(),
+      debugShowMaterialGrid: false,
+      debugShowCheckedModeBanner: false,
+      //locale: Locale('es'),
+
+      //home: Text("Hello World"),
     );
-  }
-}
