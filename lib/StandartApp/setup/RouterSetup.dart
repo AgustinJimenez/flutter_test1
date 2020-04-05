@@ -1,8 +1,8 @@
-//import '../pages/PBoxDashboard/PBoxDashboardPage.dart';
+import '../pages/HomePage.dart';
 //import '../pages/PBoxLogin/PBoxLoginPage.dart';
 
 RouterSetup() => {
-      //'/': (context) => PBoxDashboardPage(),
+      '/': (context) => HomePage(),
       //'login': (context) => PBoxLoginPage(),
       //'dashboard': (context) => PBoxDashboardPage(),
     };

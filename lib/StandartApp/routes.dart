@@ -1,10 +1,10 @@
 
-import 'package:app/pages/HomePage.dart';
-import 'package:app/pages/AlbumPage.dart';
-import 'package:app/pages/personas/PersonasIndex.dart';
-import 'package:app/pages/paises/index.dart';
-import 'package:app/pages/PuntoBox/PBoxLogin/PBoxLoginPage.dart';
-import 'package:app/pages/PuntoBox/PBoxDashboard/PBoxDashboardPage.dart';
+import './pages/HomePage.dart';
+import './pages/AlbumPage.dart';
+import './pages/personas/PersonasIndex.dart';
+import './pages/paises/index.dart';
+import './pages/PuntoBox/PBoxLogin/PBoxLoginPage.dart';
+import './pages/PuntoBox/PBoxDashboard/PBoxDashboardPage.dart';
 class AppRoutes
 {
   static Object routes = 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:app/components/Drawer/SideDrawer.dart';
+import '../components/Drawer/SideDrawer.dart';
 class HomePage extends StatelessWidget
 {
   final String page_title = "Home Page";
