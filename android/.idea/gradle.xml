@@ -11,7 +11,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="/opt/flutter/.pub-cache/hosted/pub.dartlang.org/fluttertoast-2.0.9/android" />
+            <option value="/opt/flutter/.pub-cache/hosted/pub.dartlang.org/fluttertoast-4.0.1/android" />
             <option value="/opt/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-0.4.1/android" />
             <option value="/opt/flutter/.pub-cache/hosted/pub.dartlang.org/sqflite-0.12.2+1/android" />
           </set>
