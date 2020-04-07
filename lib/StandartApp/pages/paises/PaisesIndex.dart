@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:app/components/Drawer/SideDrawer.dart';
-import './form.dart';
-import 'package:app/datasource/local/Pais.dart';
+import '../../components/Drawer/SideDrawer.dart';
+import './PaisesForm.dart';
+import '../../datasource/local/Pais.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 //import "package:pull_to_refresh/pull_to_refresh.dart";
 

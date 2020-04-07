@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import '../../routes.dart';
 
 class SideDrawer extends StatelessWidget 
 {
   final String userAccountName = "YourUserName";
   final String userAccountMail = "yourusername@mail.com";
 
-  drawerHeaderItemText(String title) => Text(title, style: TextStyle(color: drawerFontColor(), fontSize: 16.0) );
-  drawerListItemText(String title) => Text(title, style: TextStyle(color: drawerFontColor(), fontSize: 20.0, fontWeight: FontWeight.bold ),  );
-  drawerIcon(IconData type) => Icon( type, color: drawerFontColor() );
-  drawerFontColor() => Colors.white;
-  drawerBackgroundColor() => Colors.red;
-  drawerDivider() => Divider(color: Colors.white);
+  Text drawerHeaderItemText(String title) => Text(title, style: TextStyle(color: drawerFontColor(), fontSize: 16.0) );
+  Text drawerListItemText(String title) => Text(title, style: TextStyle(color: drawerFontColor(), fontSize: 20.0, fontWeight: FontWeight.bold ),  );
+  Icon drawerIcon(IconData type) => Icon( type, color: drawerFontColor() );
+  Color drawerFontColor() => Colors.white;
+  Color drawerBackgroundColor(BuildContext context) => Theme.of(context).primaryColor;
+  Divider drawerDivider() => Divider(color: Colors.white);
 
   @override
   Widget build(BuildContext context) 
@@ -20,7 +21,7 @@ class SideDrawer extends StatelessWidget
     (
       child: Container
       (
-        color: drawerBackgroundColor(),
+        color: drawerBackgroundColor(context),
         child: ListView
         (
           children: <Widget>
@@ -42,9 +43,10 @@ class SideDrawer extends StatelessWidget
             drawerDivider(),
             ListTile
             (
+            
               title: drawerListItemText("Home"),
               trailing: drawerIcon( Icons.home ),
-              onTap: () => Navigator.of(context).pushReplacementNamed('/'),
+              onTap: () => Navigator.of(context).pushReplacementNamed(AppRoutes.initialRoute),
             ),
             ListTile
             (

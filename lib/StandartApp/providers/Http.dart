@@ -1,7 +1,7 @@
 import 'dart:core';
 
 import 'package:http/http.dart' as http;
-import "package:app/setup/HttpSetup.dart";
+import "../setup/HttpSetup.dart";
 import 'dart:convert';
 
 class Http 

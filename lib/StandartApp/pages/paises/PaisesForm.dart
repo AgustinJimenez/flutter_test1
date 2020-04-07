@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:app/datasource/local/Pais.dart';
+import '../../datasource/local/Pais.dart';
 
 Pais _pais;
 

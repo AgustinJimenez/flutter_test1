@@ -3,15 +3,15 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import 'package:app/datasource/Album.dart';
-import 'package:app/components/Drawer/SideDrawer.dart';
-import 'package:app/pages/AlbumDetailPage.dart';
-import 'package:app/providers/Http.dart';
+import '../../datasource/Album.dart';
+import '../../components/Drawer/SideDrawer.dart';
+import './AlbumDetailPage.dart';
+import '../../providers/Http.dart';
 
-class AlbumPage extends StatelessWidget 
+class AlbumIndex extends StatelessWidget 
 {
-  final String api_endpoint = 'https://jsonplaceholder.typicode.com/albums';
-  final String page_title = "Albums";
+  final String _apiEndpoint = 'https://jsonplaceholder.typicode.com/albums';
+  final String _pageTitle = "Albums";
 
   @override
   Widget build(BuildContext context) 
@@ -21,13 +21,13 @@ class AlbumPage extends StatelessWidget
       drawer: SideDrawer(),
       appBar: AppBar
       (
-        title: Text( page_title )
+        title: Text( _pageTitle )
       ),
       body: Center
       (
         child: FutureBuilder<List<Album>>
         (
-          future: fetchAlbum( api_endpoint ),
+          future: fetchAlbum( _apiEndpoint ),
 
           builder: (context, snapshot)
           {

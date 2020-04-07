@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 
 class CardOne extends StatefulWidget 
 {
-  String _title = "Title";
+  String _title = "[Default title]";
+  String _bodyText = "[Default body text]";
+  String _bodyFooter = "[Default body text]";
+
   CardOne([title])
   {
     if( title != null)
@@ -16,7 +19,9 @@ class CardOne extends StatefulWidget
 }
 
 class CardOneState extends State<CardOne> {
-  _text(title) => Text(title, style: TextStyle(color: Colors.white),);
+  _cardTitle(title) => Text(title, style: TextStyle(color: Colors.white),);
+  _cardBodyText(title) => Text(title, style: TextStyle(color: Colors.white));
+  _cardBodyFooterText(title) => Text(title, style: TextStyle(color: Colors.white));
 
   @override
   Widget build(BuildContext context) 
@@ -29,7 +34,7 @@ class CardOneState extends State<CardOne> {
         padding: EdgeInsets.all(8.0),
         child: Card
         (
-          color: Colors.red,
+          color: Theme.of(context).primaryColor,
           child: Padding
           (
             padding: EdgeInsets.only
@@ -44,8 +49,8 @@ class CardOneState extends State<CardOne> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>
               [
-                _text( widget._title ),
-                Text("HERE", style: Theme.of(context).textTheme.subhead),
+                _cardTitle( widget._title ),
+                _cardBodyText( widget._bodyText ),
                 Row
                 (
                   children: <Widget>

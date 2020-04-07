@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:app/datasource/Album.dart';
-import 'package:app/components/CardOne.dart';
+import '../../datasource/Album.dart';
+import '../../components/CardOne.dart';
 class AlbumDetailPage extends StatefulWidget 
 {
   Album _album;
@@ -17,7 +17,7 @@ class AlbumDetailPage extends StatefulWidget
 }
 
 class AlbumDetailPageState extends State<AlbumDetailPage> {
-  String _page_title = "Detalle Album";
+  String _pageTitle = "Detalle Album";
 
   @override
   Widget build(BuildContext context) 
@@ -26,7 +26,7 @@ class AlbumDetailPageState extends State<AlbumDetailPage> {
     (
       appBar: AppBar
       (
-        title: Text( _page_title ),
+        title: Text( _pageTitle ),
       ),
       body: CardOne(),
     );

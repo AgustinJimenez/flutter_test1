@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:app/components/Drawer/SideDrawer.dart';
+import '../../components/Drawer/SideDrawer.dart';
 import './PersonasForm.dart';
 class PersonasIndex extends StatelessWidget 
 {
